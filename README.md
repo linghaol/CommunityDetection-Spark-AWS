@@ -1,4 +1,5 @@
 # CommunityDetection-Spark-AWS
+ ----
 
 A Spark application, written in Python3, to figure out [**strongly connected components**][strongly connected components] with Bi-directional Label Propagation algorithm.
 
