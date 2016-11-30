@@ -43,9 +43,17 @@ R. Zafarani and H. Liu, (2009). Social Computing Data Repository at ASU [http://
 [Dataset : Twitter]:http://socialcomputing.asu.edu/datasets/Twitter
 
 ## Results
-format : `('label',u'CommunitySize/Members')` </br>
+format : `('Label',u'CommunitySize/Members')` </br>
 See [**output-spark**][output-spark] folder.
 
 [output-spark]:https://github.com/linghaol/CommunityDetection-Spark-AWS/tree/master/output-spark
 
-## 
+## Want a Pseudo distributed version to test small datasets?
+Change the following positions in labelp.py: </br>
+  - (line 107) "yarn" --> "local"
+  - (line 112 & 124 & 139) "s3://..." --> "hdfs://..."
+  
+## Dataset with other format?
+If a dataset uses (space) or (tab) to seperate follower and user, </br>
+change the following position: </br>
+  - (line 11 & 51) y=x.split(',') --> y=x.split()
