@@ -24,6 +24,7 @@ This project implemented an 1.2GB Twitter network dataset by AWS EMR cluster.
      - Instance type : `m1.xlarge` </br>
        Number of instances : `7` </br>
        (You can use other type and number of instances, but make sure that your total memory is larger than 66G, which was observed as the maximum memory used during the process.) </br>
+       (The whole process took about 5 hours, 45 mins)
        
      - Permission : `Default` </br>
        (If you choose `Cluster` mode before, upload your public key to AWS and select it here) </br>
@@ -52,6 +53,7 @@ See [**output-spark**][output-spark] folder.
 Change the following positions in labelp.py: </br>
   - (line 107) "yarn" --> "local"
   - (line 112 & 124 & 139) "s3://..." --> "hdfs://..."
+  - In ubuntu 14.04, the command should be : `./bin/spark-submit --master local[4] path_of_labelp.py`
   
 ## Dataset with other format?
 If a dataset uses (space) or (tab) to seperate follower and user, </br>
