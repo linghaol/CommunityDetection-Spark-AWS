@@ -2,7 +2,7 @@
 
 A Spark application, written in Python, to figure out strongly connected components with Bi-directional Label Propagation algorithm.
 
-This project implemented an 1.2GB Twitter network dataset by AWS EMR cluster. 
+This project implemented an 1.3GB Twitter network dataset by AWS EMR cluster. 
 
 ## How to replicate the experiment
    - Upload labelp.py and dataset to your bucket in AWS S3. (if you already have an [**AWS account**][AWS account])
