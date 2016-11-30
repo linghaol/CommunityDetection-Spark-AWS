@@ -16,7 +16,7 @@ This project implemented an 1.3GB Twitter network dataset by AWS EMR cluster.
        Name : `labelp` </br> 
        Deploy mode : `cluster` </br>
        Spark-submit options : `--driver-memory 10g --executor-memory 5g` . Without setting memory, application may fail for memoryoverhead. (For more details : [**Running Spark on Yarn**][Running Spark on Yarn])</br>
-       Application location : `choose your labelp.py in S3` </br>
+       Application location : `choose labelp.py in your S3 bucket` </br>
        Action on failure : `Terminate cluster` (Recommended) </br>
     
      - Vendor : `Amazon`, Release : `emr-5.2.0` (If you choose `Cluster` mode before, choose Application : `Spark: Spark 2.0.2...`.) </br>
