@@ -4,7 +4,7 @@ A Spark application, written in Python, to figure out strongly connected compone
 
 This project implemented an 1.2GB Twitter network dataset by AWS EMR cluster. 
 
-## How to use it
+## How to replicate the experiment
    - Upload labelp.py and dataset to your bucket in AWS S3. (if you already have an [**AWS account**][AWS account])
    
    - Create a cluster in AWS EMR. </br>
@@ -31,9 +31,21 @@ This project implemented an 1.2GB Twitter network dataset by AWS EMR cluster.
      - Click `Create cluster` button. </br>
        Done! </br>
        Your cluster will be terminated automatically after the application is finished.
-     
-   
-   
-   
+ 
 [AWS account]:https://aws.amazon.com/
 [Running Spark on Yarn]:http://spark.apache.org/docs/latest/running-on-yarn.html
+
+## Where to find the dataset I used
+
+[**Dataset : Twitter**][Dataset : Twitter] </br>
+R. Zafarani and H. Liu, (2009). Social Computing Data Repository at ASU [http://socialcomputing.asu.edu]. Tempe, AZ: Arizona State University, School of Computing, Informatics and Decision Systems Engineering
+
+[Dataset : Twitter]:http://socialcomputing.asu.edu/datasets/Twitter
+
+## Results
+format : `('label',u'CommunitySize/Members')` </br>
+See [**output-spark**][output-spark] folder.
+
+[output-spark]:https://github.com/linghaol/CommunityDetection-Spark-AWS/tree/master/output-spark
+
+## 
