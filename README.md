@@ -51,11 +51,15 @@ See [**output-spark**][output-spark] folder.
 
 ## Want a Pseudo distributed version to test small datasets?
 Change the following positions in labelp.py: </br>
-  - (line 107) "yarn" --> "local"
-  - (line 112 & 124 & 139) "s3://..." --> "hdfs://..."
+  - (line 107) `"yarn" --> "local"`
+  - (line 112 & 124 & 139) `"s3://..." --> "hdfs://..."`
   - In ubuntu 14.04, the command should be : `./bin/spark-submit --master local[4] path_of_labelp.py`
   
-## Dataset with other format?
-If a dataset uses (space) or (tab) to seperate follower and user, </br>
+## Dataset in other format?
+With a dataset using (space) or (tab) to seperate follower and user, </br>
 change the following position: </br>
-  - (line 11 & 51) y=x.split(',') --> y=x.split()
+  - (line 11 & 51) `y=x.split(',') --> y=x.split()`
+  
+## Others
+If you have any question or suggestion, please contact llh455398472@gmail.com or linghaol@usc.edu . Thanks!
+
