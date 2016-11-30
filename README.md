@@ -52,7 +52,7 @@ See [**output-spark**][output-spark] folder.
 ## Want a Pseudo distributed version to test small datasets?
 Change the following positions in labelp.py: </br>
   - (line 107) `"yarn" --> "local"`
-  - (line 112 & 124 & 139) `"s3://..." --> "hdfs://..."`
+  - (line 112 & 124 & 139) `"s3://..." --> "hdfs://..."` (path of your data file in HDFS)
   - In ubuntu 14.04, the command should be : `./bin/spark-submit --master local[4] path_of_labelp.py`
   
 ## Dataset in other format?
