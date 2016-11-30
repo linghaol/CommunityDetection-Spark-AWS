@@ -104,19 +104,15 @@ def sum_number(x):
 
 if __name__=='__main__':
     from pyspark import SparkContext
-    # initialize and set ('master name','app name')
-    # I used yarn to manage the cluster here
+    # initialize
     sc=SparkContext("yarn", "labelp")
-    # textFile() imports dataset from S3 bucket
-    # reduceByKey() uses ',' to collect all followers of a user  
+    # reduceByKey() uses ',' to collect all followers of a user
     p_list=sc.textFile("s3://spark-llh/inputfile/edges.csv")\
     .map(divide).reduceByKey(lambda a,b:a+","+b).map(add_plus)
     # initialize accumulator
     p_count=sc.accumulator(0)
     while 1:
-        # do positive label propagation
         p_list=p_list.flatMap(p_check).union(p_list).reduceByKey(p_update)
-        # update accumulator
         p_list.collect()
         if p_count.value==0:
             break
@@ -125,15 +121,12 @@ if __name__=='__main__':
     .map(reverse).reduceByKey(lambda a,b:a+","+b).map(add_minus)
     n_count=sc.accumulator(0)
     while 1:
-        # do negative propagation
         n_list=n_list.flatMap(n_check).union(n_list).reduceByKey(n_update)
         n_list.collect()
         if n_count.value==0:
             break
         n_count.value=0
-    # collect users by the same community label, calculate the size of community
     all=p_list.union(n_list).reduceByKey(merge_label).map(id_label_reverse).reduceByKey(assemble)\
     .flatMap(sum_number)
-    # save output to S3 bucket
     # Attention!!! Output folder should NOT exist before generating, which means 'spark-llh' bucket shouldn't have a folder called 'output' previously 
     all.saveAsTextFile("s3://spark-llh/output")
