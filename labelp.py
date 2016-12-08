@@ -128,5 +128,5 @@ if __name__=='__main__':
         n_count.value=0
     all=p_list.union(n_list).reduceByKey(merge_label).map(id_label_reverse).reduceByKey(assemble)\
     .flatMap(sum_number)
-    # Attention!!! Output folder should NOT exist before generating, which means 'spark-llh' bucket shouldn't have a folder called 'output' previously 
+    # Attention!! Output folder should NOT exist before generating, which means that 'spark-llh' bucket shouldn't have a folder called 'output' previously 
     all.saveAsTextFile("s3://spark-llh/output")
