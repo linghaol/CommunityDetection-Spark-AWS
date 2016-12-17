@@ -113,7 +113,7 @@ if __name__=='__main__':
     p_count=sc.accumulator(0)
     while 1:
         p_list=p_list.flatMap(p_check).union(p_list).reduceByKey(p_update)
-        p_list.count()  # an action to trigger transformations and updating accumulator 
+        p_list.count()  # an action to trigger transformations and accumulator 
         if p_count.value==0:
             break
         p_count.value=0
