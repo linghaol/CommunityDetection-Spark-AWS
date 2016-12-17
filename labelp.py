@@ -113,7 +113,7 @@ if __name__=='__main__':
     p_count=sc.accumulator(0)
     while 1:
         p_list=p_list.flatMap(p_check).union(p_list).reduceByKey(p_update)
-        p_list.collect()
+        p_list.count()
         if p_count.value==0:
             break
         p_count.value=0
@@ -122,7 +122,7 @@ if __name__=='__main__':
     n_count=sc.accumulator(0)
     while 1:
         n_list=n_list.flatMap(n_check).union(n_list).reduceByKey(n_update)
-        n_list.collect()
+        n_list.count()
         if n_count.value==0:
             break
         n_count.value=0
