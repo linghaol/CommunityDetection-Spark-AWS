@@ -49,7 +49,7 @@ See [**output-spark**][output-spark] folder.
 
 [output-spark]:https://github.com/linghaol/CommunityDetection-Spark-AWS/tree/master/output-spark
 
-## Details of algorithm
+## Details of Algorithm
 Please read [**Algorithm Instruction.pdf**][Algorithm Instruction.pdf].
 
 [Algorithm Instruction.pdf]:https://github.com/linghaol/CommunityDetection-Spark-AWS/blob/master/Algorithm%20Instruction.pdf
