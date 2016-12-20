@@ -49,6 +49,11 @@ See [**output-spark**][output-spark] folder.
 
 [output-spark]:https://github.com/linghaol/CommunityDetection-Spark-AWS/tree/master/output-spark
 
+## Details of algorithm
+Please read [**Algorithm Instruction.pdf**][Algorithm Instruction.pdf].
+
+[Algorithm Instruction.pdf]:https://github.com/linghaol/CommunityDetection-Spark-AWS/blob/master/Algorithm%20Instruction.pdf
+
 ## Want a Pseudo distributed version to test small datasets?
 Change the following positions in labelp.py: </br>
   - (line 108) `"yarn" --> "local"`
