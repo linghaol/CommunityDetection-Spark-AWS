@@ -1,8 +1,10 @@
 # CommunityDetection-Spark-AWS
 
-A Spark application, written in Python3, to figure out strongly connected components with Bi-directional Label Propagation algorithm.
+A Spark application, written in Python3, to figure out [**strongly connected components**][strongly connected components] with Bi-directional Label Propagation algorithm.
 
 This project implemented an 1.3GB Twitter network dataset by AWS EMR cluster. 
+
+[strongly connected components]:https://en.wikipedia.org/wiki/Strongly_connected_component
 
 ## How to replicate the experiment
    - Upload labelp.py and dataset to your bucket in AWS S3. (if you already have an [**AWS account**][AWS account])
