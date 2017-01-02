@@ -121,4 +121,3 @@ if __name__=='__main__':
     all=p_list.union(n_list).reduceByKey(merge_label).map(id_label_reverse).reduceByKey(assemble)\
     .flatMap(sum_number)
     all.coalesce(5).saveAsTextFile("hdfs://localhost:9000/user/hadoop/output")
-    # RDD.coalesce(5) assembles RDD in 5 partitions, which can reduce the size of RDD and accelerate
