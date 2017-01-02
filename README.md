@@ -57,10 +57,8 @@ Please read [**Algorithm Instruction.pdf**][Algorithm Instruction.pdf].
 [Algorithm Instruction.pdf]:https://github.com/linghaol/CommunityDetection-Spark-AWS/blob/master/Algorithm%20Instruction.pdf
 
 ## Want a Pseudo distributed version to test small datasets?
-Change the following positions in labelp.py: </br>
-  - (line 108) `"yarn" --> "local"`
-  - (line 110 & 120 & 132) `"s3://..." --> "hdfs://..."` (path of your data file in HDFS)
-  - In ubuntu 14.04, the command should be : `./bin/spark-submit --master local[4] path_of_labelp.py`
+Please see [**pseudo mode**][pseudo mode].
+[pseudo mode]:https://github.com/linghaol/CommunityDetection-Spark-AWS/tree/master/pseudo%20mode
   
 ## Dataset in other format?
 With a dataset using (space) or (tab) to seperate follower and user, </br>
