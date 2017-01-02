@@ -5,7 +5,6 @@
 - There are a testdata file and its corresponding results
 
 ##testdata
-The first graph on this Wikipedia page: [**Strongly connected component**][Strongly connected component] </br>
-[Strongly connected component]:https://en.wikipedia.org/wiki/Strongly_connected_component
-
+The first graph on this Wikipedia page: </br>
+https://en.wikipedia.org/wiki/Strongly_connected_component </br>
 ![](Scc.png)
