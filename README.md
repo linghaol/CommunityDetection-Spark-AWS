@@ -68,5 +68,9 @@ change the following position: </br>
   - (line 11 & 51) `y=x.split(',') --> y=x.split()`
   
 ## Others
-If you have any question or suggestion, please contact llh455398472@gmail.com or linghaol@usc.edu . Thanks!
+If you have any question or suggestion, please contact llh455398472@gmail.com or linghaol@usc.edu . </br>
+Thanks! </br>
+
+Linghao Li </br>
+12/19/2016
 
