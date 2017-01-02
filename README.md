@@ -47,8 +47,7 @@ R. Zafarani and H. Liu, (2009). Social Computing Data Repository at ASU [http://
 
 ## Results
 Output format : `('Label',u'CommunitySize/Members')` </br>
-See [**output-spark**][output-spark] folder.
-
+See [**output-spark**][output-spark].
 [output-spark]:https://github.com/linghaol/CommunityDetection-Spark-AWS/tree/master/output-spark
 
 ## Details of Algorithm
