@@ -8,4 +8,4 @@
 The first graph on this Wikipedia page: [**Strongly connected component**][Strongly connected component] </br>
 [Strongly connected component]:https://en.wikipedia.org/wiki/Strongly_connected_component
 
-![testdata](SCC.png)
+![](Scc.png)
