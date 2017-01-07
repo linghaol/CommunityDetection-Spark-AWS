@@ -17,16 +17,16 @@ This project implemented an 1.3GB Twitter network dataset by AWS EMR cluster.
        (configure) </br> 
        Name : `labelp` </br> 
        Deploy mode : `cluster` </br>
-       Spark-submit options : `--driver-memory 10g --executor-memory 5g` . Without setting memory, application may fail for memoryoverhead. (For more details : [**Running Spark on Yarn**][Running Spark on Yarn])</br>
+       Spark-submit options : `-- master yarn --driver-memory 10g --executor-memory 5g` . Without setting memory, application may fail for memoryoverhead. (For more details : [**Running Spark on Yarn**][Running Spark on Yarn])</br>
        Application location : `choose labelp.py in your S3 bucket` </br>
        Action on failure : `Terminate cluster` (Recommended) </br>
     
      - Vendor : `Amazon`, Release : `emr-5.2.0` (If you choose `Cluster` mode before, choose Application : `Spark: Spark 2.0.2...`.) </br>
      
-     - Instance type : `m1.xlarge` </br>
-       Number of instances : `7` </br>
-       (You can use other type and number of instances, but make sure that your total memory is larger than 66G, which was observed as the maximum memory used during the process. But, the latest version may not require too much memory. See below !) </br>
-       (The latest version uses RDD.count() to trigger transformations and accumulator instead of RDD.collect(), which will absolutely reduce much the cost of computation. So the whole time for running will also be less than 5 hours 45 mins.)
+     - Instance type : `m1.large` </br>
+       Number of instances : `4` </br>
+       (You can use other type and number of instances, but make sure that your total memory is larger than 9.16G, which was observed as the maximum memory used during the process.) </br>
+       (The latest version uses RDD.count() to trigger transformations and accumulator instead of RDD.collect(), which will absolutely reduce much the cost of computation. So the whole time for running was 6 hour and 43 mins.)
        
      - Permission : `Default` </br>
        (If you choose `Cluster` mode before, upload your public key to AWS and select it here) </br>
