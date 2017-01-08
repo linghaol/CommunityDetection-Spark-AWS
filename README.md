@@ -25,7 +25,7 @@ This project implemented an 1.3GB Twitter network dataset by AWS EMR cluster.
      
      - Instance type : `m1.large` </br>
        Number of instances : `4` </br>
-       (You can use other type and number of instances, but make sure that your total memory is larger than 9.16G, which was observed as the maximum memory used during the process.) </br>
+       (You can use other type and number of instances, but make sure that your total memory is larger than 13.91G, which was observed as the maximum memory used during the process.) </br>
        (The latest version uses RDD.count() to trigger transformations and accumulator instead of RDD.collect(), which will absolutely reduce much the cost of computation. So the whole time for running was 6 hour and 43 mins.)
        
      - Permission : `Default` </br>
