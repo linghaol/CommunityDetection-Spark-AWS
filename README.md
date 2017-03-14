@@ -60,7 +60,7 @@ Please see [**pseudo mode**][pseudo mode].
 [pseudo mode]:https://github.com/linghaol/CommunityDetection-Spark-AWS/tree/master/pseudo%20mode
   
 ## Dataset in other format?
-With a dataset using (space) or (tab) to seperate follower and user, </br>
+With a dataset using (space) or (tab) to separate follower and user, </br>
 change the following position: </br>
   - (line 11 & 51) `y=x.split(',') --> y=x.split()`
   
