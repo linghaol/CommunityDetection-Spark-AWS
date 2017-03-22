@@ -48,6 +48,7 @@ R. Zafarani and H. Liu, (2009). Social Computing Data Repository at ASU [http://
 ## Results
 Output format : `('Label',u'CommunitySize/Members')` </br>
 See [**output-refined version**][output-refined version].
+
 [output-refined version]:https://github.com/linghaol/CommunityDetection-Spark-AWS/tree/master/output-refined%20version
 
 ## Details of Algorithm
@@ -57,6 +58,7 @@ Please read [**Algorithm Instruction.pdf**][Algorithm Instruction.pdf].
 
 ## Want a Pseudo distributed version to test small datasets?
 Please see [**pseudo mode**][pseudo mode].
+
 [pseudo mode]:https://github.com/linghaol/CommunityDetection-Spark-AWS/tree/master/pseudo%20mode
   
 ## Dataset in other format?
