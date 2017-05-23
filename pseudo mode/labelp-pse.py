@@ -97,27 +97,26 @@ def sum_number(x):
     else:
         return []
 
-if __name__ == '__main__':
-    from pyspark import SparkContext 
-    sc = SparkContext("local", "labelp-pse")
-    p_list = sc.textFile("hdfs://localhost:9000/user/hadoop/input/testdata")\
-    .map(divide).reduceByKey(lambda a,b:a+","+b).map(add_plus)
-    p_count = sc.accumulator(0)
-    while 1:
-        p_list = p_list.flatMap(p_check).union(p_list).reduceByKey(p_update)
-        p_list.count()
-        if p_count.value == 0:
-            break
-        p_count.value=0
-    n_list = sc.textFile("hdfs://localhost:9000/user/hadoop/input/testdata")\
-    .map(reverse).reduceByKey(lambda a,b:a+","+b).map(add_minus)
-    n_count = sc.accumulator(0)
-    while 1:
-        n_list = n_list.flatMap(n_check).union(n_list).reduceByKey(n_update)
-        n_list.count()
-        if n_count.value == 0:
-            break
-        n_count.value = 0
-    all = p_list.union(n_list).reduceByKey(merge_label).map(id_label_reverse).reduceByKey(assemble)\
-    .flatMap(sum_number)
-    all.coalesce(5).saveAsTextFile("hdfs://localhost:9000/user/hadoop/output")
+from pyspark import SparkContext 
+sc = SparkContext("local", "labelp-pse")
+p_list = sc.textFile("hdfs://localhost:9000/user/hadoop/input/testdata")\
+.map(divide).reduceByKey(lambda a,b:a+","+b).map(add_plus)
+p_count = sc.accumulator(0)
+while 1:
+    p_list = p_list.flatMap(p_check).union(p_list).reduceByKey(p_update)
+    p_list.count()
+    if p_count.value == 0:
+        break
+    p_count.value=0
+n_list = sc.textFile("hdfs://localhost:9000/user/hadoop/input/testdata")\
+.map(reverse).reduceByKey(lambda a,b:a+","+b).map(add_minus)
+n_count = sc.accumulator(0)
+while 1:
+    n_list = n_list.flatMap(n_check).union(n_list).reduceByKey(n_update)
+    n_list.count()
+    if n_count.value == 0:
+        break
+    n_count.value = 0
+all = p_list.union(n_list).reduceByKey(merge_label).map(id_label_reverse).reduceByKey(assemble)\
+.flatMap(sum_number)
+all.coalesce(5).saveAsTextFile("hdfs://localhost:9000/user/hadoop/output")
