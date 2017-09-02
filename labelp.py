@@ -103,29 +103,31 @@ def sum_number(x):
         return []
 
 from pyspark import SparkContext
-# initialize
-sc = SparkContext("yarn", "labelp")
-# reduceByKey() uses ',' to collect all followers of a user
-p_list = sc.textFile("s3://spark-llh/inputfile/edges.csv")\
-.coalesce(100).map(divide).reduceByKey(lambda a,b:a+","+b).map(add_plus)
-# initialize accumulator
-p_count = sc.accumulator(0)
-while 1:
-    p_list = p_list.coalesce(100).flatMap(p_check).union(p_list).reduceByKey(p_update)
-    p_list.count()  # an action to trigger transformations and accumulator 
-    if p_count.value == 0:
-        break
-    p_count.value=0
-n_list = sc.textFile("s3://spark-llh/inputfile/edges.csv")\
-.coalesce(100).map(reverse).reduceByKey(lambda a,b:a+","+b).map(add_minus)
-n_count = sc.accumulator(0)
-while 1:
-    n_list = n_list.coalesce(100).flatMap(n_check).union(n_list).reduceByKey(n_update)
-    n_list.count()
-    if n_count.value == 0:
-        break
-    n_count.value=0
-all = p_list.union(n_list).coalesce(100).reduceByKey(merge_label).map(id_label_reverse).reduceByKey(assemble)\
-.flatMap(sum_number)
-# Attention!! Output folder should NOT exist before generating, which means that 'spark-llh' bucket shouldn't have a folder called 'output' previously 
-all.coalesce(50).saveAsTextFile("s3://spark-llh/output")
+
+if __name__ == '__main__':
+    # initialize
+    sc = SparkContext("yarn", "labelp")
+    # reduceByKey() uses ',' to collect all followers of a user
+    p_list = sc.textFile("s3://spark-llh/inputfile/edges.csv")\
+    .coalesce(100).map(divide).reduceByKey(lambda a,b:a+","+b).map(add_plus)
+    # initialize accumulator
+    p_count = sc.accumulator(0)
+    while 1:
+        p_list = p_list.coalesce(100).flatMap(p_check).union(p_list).reduceByKey(p_update)
+        p_list.count()  # an action to trigger transformations and accumulator 
+        if p_count.value == 0:
+            break
+        p_count.value=0
+    n_list = sc.textFile("s3://spark-llh/inputfile/edges.csv")\
+    .coalesce(100).map(reverse).reduceByKey(lambda a,b:a+","+b).map(add_minus)
+    n_count = sc.accumulator(0)
+    while 1:
+        n_list = n_list.coalesce(100).flatMap(n_check).union(n_list).reduceByKey(n_update)
+        n_list.count()
+        if n_count.value == 0:
+            break
+        n_count.value=0
+    all = p_list.union(n_list).coalesce(100).reduceByKey(merge_label).map(id_label_reverse).reduceByKey(assemble)\
+    .flatMap(sum_number)
+    # Attention!! Output folder should NOT exist before generating, which means that 'spark-llh' bucket shouldn't have a folder called 'output' previously 
+    all.coalesce(50).saveAsTextFile("s3://spark-llh/output")
